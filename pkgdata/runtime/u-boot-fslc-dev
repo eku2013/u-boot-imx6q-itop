@@ -1,0 +1,15 @@
+PN: u-boot-fslc
+PV: v2016.07+gitAUTOINC+e6b42411ab
+PR: r0
+PKGV: v2016.07+git0+e6b42411ab
+PKGR: r0
+LICENSE: GPLv2+
+DESCRIPTION_u-boot-fslc-dev: U-Boot based on mainline U-Boot used by FSL Community BSP in order to provide support for some backported features and fixes, or because it was submitted for revision and it takes some time to become part of a stable version, or because it is not applicable for upstreaming.  This package contains symbolic links, header files, and related items necessary for software development.
+SUMMARY_u-boot-fslc-dev: Universal Boot Loader for embedded devices - Development files
+RDEPENDS_u-boot-fslc-dev: u-boot-fslc (= v2016.07+git0+e6b42411ab-r0)
+SECTION_u-boot-fslc-dev: devel
+PKG_u-boot-fslc-dev: u-boot-fslc-dev
+ALLOW_EMPTY_u-boot-fslc-dev: 1
+FILES_u-boot-fslc-dev: /usr/include /lib/lib*.so /usr/lib/lib*.so /usr/lib/*.la /usr/lib/*.o /usr/lib/pkgconfig /usr/share/pkgconfig /usr/share/aclocal /lib/*.o /usr/lib/u-boot-fslc/*.la /lib/*.la
+FILES_INFO: {}
+PKGSIZE_u-boot-fslc-dev: 0

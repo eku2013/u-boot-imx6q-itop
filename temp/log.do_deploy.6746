@@ -1,0 +1,15 @@
+DEBUG: Executing python function sstate_task_prefunc
+DEBUG: Python function sstate_task_prefunc finished
+DEBUG: Executing shell function do_deploy
+DEBUG: Shell function do_deploy finished
+DEBUG: Executing python function sstate_task_postfunc
+DEBUG: Staging files from /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc to /home/eku/fsl-community-bsp/build/tmp/deploy/images/imx6qsabresd
+DEBUG: Preparing tree /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc for packaging at /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/sstate-build-deploy/deploy-u-boot-fslc
+DEBUG: Executing python function sstate_hardcode_path
+NOTE: Removing hardcoded paths from sstate package: 'find /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/sstate-build-deploy/ \( -name "*.la" -o -name "*-config" -o -name "*_config" \) -type f | xargs grep -l -e '/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd' | tee /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/sstate-build-deploy/fixmepath | xargs --no-run-if-empty sed -i -e 's:/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd:FIXMESTAGINGDIRHOST:g''
+DEBUG: Python function sstate_hardcode_path finished
+DEBUG: Executing shell function sstate_create_package
+DEBUG: Shell function sstate_create_package finished
+DEBUG: Executing python function sstate_sign_package
+DEBUG: Python function sstate_sign_package finished
+DEBUG: Python function sstate_task_postfunc finished

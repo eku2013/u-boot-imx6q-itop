@@ -1,0 +1,40 @@
+DEBUG: Executing python function sstate_task_prefunc
+DEBUG: Python function sstate_task_prefunc finished
+DEBUG: Executing python function do_package_write_rpm
+DEBUG: Executing python function read_subpackage_metadata
+DEBUG: Python function read_subpackage_metadata finished
+DEBUG: Executing python function do_package_rpm
+DEBUG: Executing python function write_specfile
+NOTE: Creating EMPTY RPM Package for u-boot-fslc-dbg
+NOTE: Not creating empty RPM package for u-boot-fslc-staticdev
+NOTE: Creating EMPTY RPM Package for u-boot-fslc-dev
+NOTE: Not creating empty RPM package for u-boot-fslc-doc
+NOTE: Not creating empty RPM package for u-boot-fslc-locale
+NOTE: Creating RPM package for u-boot-fslc
+NOTE: Creating RPM package for u-boot-fslc
+DEBUG: Python function write_specfile finished
+DEBUG: PKGWRITEDIR: /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-rpms/imx6qsabresd
+DEBUG: Executing shell function BUILDSPEC
+Building target platforms: imx6qsabresd-poky-linux-gnueabi
+Processing files: u-boot-fslc-v2016.07+git0+e6b42411ab-r0.imx6qsabresd
+Processing files: u-boot-fslc-dbg-v2016.07+git0+e6b42411ab-r0.imx6qsabresd
+Processing files: u-boot-fslc-dev-v2016.07+git0+e6b42411ab-r0.imx6qsabresd
+Checking for unpackaged file(s): /home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/usr/bin/../lib/rpm/check-files /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/package
+Wrote: /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-rpms/imx6qsabresd/u-boot-fslc-v2016.07+git0+e6b42411ab-r0.imx6qsabresd.rpm
+Wrote: /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-rpms/imx6qsabresd/u-boot-fslc-dbg-v2016.07+git0+e6b42411ab-r0.imx6qsabresd.rpm
+Wrote: /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-rpms/imx6qsabresd/u-boot-fslc-dev-v2016.07+git0+e6b42411ab-r0.imx6qsabresd.rpm
+DEBUG: Shell function BUILDSPEC finished
+DEBUG: Python function do_package_rpm finished
+DEBUG: Python function do_package_write_rpm finished
+DEBUG: Executing python function sstate_task_postfunc
+DEBUG: Staging files from /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-rpms to /home/eku/fsl-community-bsp/build/tmp/deploy/rpm
+NOTE: Using umask 002 (not 22) for sstate packaging
+DEBUG: Preparing tree /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-rpms for packaging at /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/sstate-build-package_write_rpm/deploy-rpms
+DEBUG: Executing python function sstate_hardcode_path
+NOTE: Removing hardcoded paths from sstate package: 'find /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/sstate-build-package_write_rpm/ \( -name "*.la" -o -name "*-config" -o -name "*_config" \) -type f | xargs grep -l -e '/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd' | tee /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/sstate-build-package_write_rpm/fixmepath | xargs --no-run-if-empty sed -i -e 's:/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd:FIXMESTAGINGDIRHOST:g''
+DEBUG: Python function sstate_hardcode_path finished
+DEBUG: Executing shell function sstate_create_package
+DEBUG: Shell function sstate_create_package finished
+DEBUG: Executing python function sstate_sign_package
+DEBUG: Python function sstate_sign_package finished
+DEBUG: Python function sstate_task_postfunc finished

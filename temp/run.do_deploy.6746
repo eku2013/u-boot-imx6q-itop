@@ -1,0 +1,206 @@
+#!/bin/sh
+
+# Emit a useful diagnostic if something fails:
+bb_exit_handler() {
+    ret=$?
+    case $ret in
+    0)  ;;
+    *)  case $BASH_VERSION in
+        "") echo "WARNING: exit code $ret from a shell command.";;
+        *)  echo "WARNING: ${BASH_SOURCE[0]}:${BASH_LINENO[0]} exit $ret from '$BASH_COMMAND'";;
+        esac
+        exit $ret
+    esac
+}
+trap 'bb_exit_handler' 0
+set -e
+export prefix="/usr"
+export STRIP="arm-poky-linux-gnueabi-strip"
+export localstatedir="/var"
+export BUILD_CC="gcc "
+export USER="eku"
+export libexecdir="/usr/libexec"
+export datadir="/usr/share"
+export PKG_CONFIG_SYSROOT_DIR="/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd"
+export BUILD_CXX="g++ "
+export LD="arm-poky-linux-gnueabi-ld --sysroot=/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd "
+export bindir="/usr/bin"
+export TARGET_CXXFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0=/usr/src/debug/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0 -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux= -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd= "
+export BUILD_LDFLAGS="-L/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/usr/lib -L/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/lib -Wl,-rpath-link,/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/usr/lib -Wl,-rpath-link,/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/lib -Wl,-rpath,/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/usr/lib -Wl,-rpath,/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/lib -Wl,-O1"
+unset TARGET_ARCH
+export STRINGS="arm-poky-linux-gnueabi-strings"
+export CCACHE_DIR="/home/eku/.ccache"
+export BUILD_LD="ld "
+export BUILD_CCLD="gcc "
+export BUILD_CFLAGS="-isystem/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/usr/include -O2 -pipe"
+export PKG_CONFIG_SYSTEM_LIBRARY_PATH="/lib:/usr/lib"
+export docdir="/usr/share/doc"
+export infodir="/usr/share/info"
+export CC="arm-poky-linux-gnueabi-gcc  -march=armv7-a -marm -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a9 --sysroot=/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd"
+export TERM="xterm"
+export RANLIB="arm-poky-linux-gnueabi-ranlib"
+export CPPFLAGS=""
+export PKG_CONFIG_SYSTEM_INCLUDE_PATH="/usr/include"
+export READELF="arm-poky-linux-gnueabi-readelf"
+export base_sbindir="/sbin"
+export CXX="arm-poky-linux-gnueabi-g++  -march=armv7-a -marm -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a9 --sysroot=/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd"
+export systemd_unitdir="/lib/systemd"
+export FC="arm-poky-linux-gnueabi-gfortran  -march=armv7-a -marm -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a9 --sysroot=/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd"
+export HOME="/home/eku"
+export BUILD_RANLIB="ranlib"
+export BUILD_FC="gfortran "
+export AS="arm-poky-linux-gnueabi-as "
+export AR="arm-poky-linux-gnueabi-ar"
+export BUILD_CPPFLAGS="-isystem/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/usr/include"
+export BUILD_AR="ar"
+export oldincludedir="/usr/include"
+export CPP="arm-poky-linux-gnueabi-gcc -E --sysroot=/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd  -march=armv7-a -marm -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a9"
+export mandir="/usr/share/man"
+export sharedstatedir="/com"
+export BUILD_CXXFLAGS="-isystem/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/usr/include -O2 -pipe -D_GLIBCXX_USE_CXX11_ABI=0"
+export OBJCOPY="arm-poky-linux-gnueabi-objcopy"
+export CCACHE_DISABLE="1"
+export servicedir="/srv"
+export PKG_CONFIG_PATH="/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd/usr/lib/pkgconfig:/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd/usr/share/pkgconfig"
+export LC_ALL="C"
+export TARGET_CPPFLAGS=""
+export PKG_CONFIG_DIR="/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd/usr/lib/pkgconfig"
+export LDFLAGS="-Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed"
+export BUILD_NM="nm"
+export nonarch_libdir="/usr/lib"
+export sysconfdir="/etc"
+export CCLD="arm-poky-linux-gnueabi-gcc  -march=armv7-a -marm -mfpu=neon  -mfloat-abi=hard -mcpu=cortex-a9 --sysroot=/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd"
+export base_libdir="/lib"
+export MAKE="make"
+export LOGNAME="eku"
+export PATH="/home/eku/fsl-community-bsp/build/tmp/sysroots-uninative/x86_64-linux/usr/bin:/home/eku/fsl-community-bsp/sources/poky/scripts:/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/usr/bin/arm-poky-linux-gnueabi:/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd/usr/bin/crossscripts:/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/usr/sbin:/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/usr/bin:/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/sbin:/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux/bin:/home/eku/fsl-community-bsp/sources/poky/scripts:/home/eku/fsl-community-bsp/sources/poky/bitbake/bin:/home/eku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export TARGET_CFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0=/usr/src/debug/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0 -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux= -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd= "
+export base_bindir="/bin"
+export includedir="/usr/include"
+export PKG_CONFIG_LIBDIR="/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd/usr/lib/pkgconfig"
+unset MACHINE
+export sbindir="/usr/sbin"
+export CFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0=/usr/src/debug/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0 -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux= -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd= "
+export BUILD_AS="as "
+export OBJDUMP="arm-poky-linux-gnueabi-objdump"
+unset DISTRO
+export systemd_system_unitdir="/lib/systemd/system"
+export exec_prefix="/usr"
+export TARGET_LDFLAGS="-Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed"
+export PKG_CONFIG_DISABLE_UNINSTALLED="yes"
+export libdir="/usr/lib"
+export nonarch_base_libdir="/lib"
+export PSEUDO_DISABLED="1"
+export PSEUDO_UNLOAD="1"
+unset SHELL
+export BUILD_CPP="gcc  -E"
+export systemd_user_unitdir="/usr/lib/systemd/user"
+export CXXFLAGS=" -O2 -pipe -g -feliminate-unused-debug-types -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0=/usr/src/debug/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0 -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/sysroots/x86_64-linux= -fdebug-prefix-map=/home/eku/fsl-community-bsp/build/tmp/sysroots/imx6qsabresd=  -fvisibility-inlines-hidden"
+export NM="arm-poky-linux-gnueabi-nm"
+export base_prefix=""
+export BUILD_STRIP="strip"
+
+do_deploy() {
+    if [ "xsd" != "x" ]
+    then
+        for config in  mx6qsabresd_config; do
+            i=`expr $i + 1`;
+            for type in sd; do
+                j=`expr $j + 1`;
+                if [ $j -eq $i ]
+                then
+                    install -d /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc
+                    install /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/git/${config}/u-boot-${type}.imx /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/u-boot-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0.imx
+                    cd /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc
+                    ln -sf u-boot-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0.imx u-boot-imx6qsabresd.imx-${type}
+                    ln -sf u-boot-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0.imx u-boot-imx6qsabresd.imx
+                    ln -sf u-boot-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0.imx u-boot.imx-${type}
+                    ln -sf u-boot-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0.imx u-boot.imx
+                fi
+            done
+            unset  j
+        done
+        unset  i
+    else
+        install -d /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc
+        install /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/git/u-boot.imx /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/u-boot-imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0.imx
+        cd /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc
+        rm -f u-boot.imx u-boot-imx6qsabresd.imx
+        ln -sf u-boot-imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0.imx u-boot-imx6qsabresd.imx
+        ln -sf u-boot-imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0.imx u-boot.imx
+   fi
+
+    if [ "x" != "x" ]
+    then
+        if [ "xsd" != "x" ]
+        then
+            for config in  mx6qsabresd_config; do
+                i=`expr $i + 1`;
+                for type in sd; do
+                    j=`expr $j + 1`;
+                    if [ $j -eq $i ]
+                    then
+                        install /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/git/${config}/ /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/u-boot-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0.elf
+                        ln -sf u-boot-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0.elf /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/u-boot.elf-${type}
+                        ln -sf u-boot-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0.elf /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/u-boot.elf
+                        ln -sf u-boot-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0.elf /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/u-boot-imx6qsabresd.elf-${type}
+                        ln -sf u-boot-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0.elf /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/u-boot-imx6qsabresd.elf
+                    fi
+                done
+                unset j
+            done
+            unset i
+        else
+            install /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/git/ /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/u-boot-imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0.elf
+            ln -sf u-boot-imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0.elf /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/u-boot.elf
+            ln -sf u-boot-imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0.elf /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/u-boot-imx6qsabresd.elf
+        fi
+    fi
+
+
+     if [ "x" != "x" ]
+     then
+         if [ "xsd" != "x" ]
+         then
+             for config in  mx6qsabresd_config; do
+                 i=`expr $i + 1`;
+                 for type in sd; do
+                     j=`expr $j + 1`;
+                     if [ $j -eq $i ]
+                     then
+                         install /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/git/${config}/ /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0
+                         rm -f /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/ /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-imx6qsabresd-${type}
+                         ln -sf -imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0 /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-${type}
+                         ln -sf -imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0 /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/
+                         ln -sf -imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0 /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-imx6qsabresd-${type}
+                         ln -sf -imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0-${type}-v2016.07+gitAUTOINC+e6b42411ab-r0 /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-imx6qsabresd
+                     fi
+                 done
+                 unset  j
+             done
+             unset  i
+         else
+             install /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/git/ /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0
+             rm -f /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/ /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-imx6qsabresd
+             ln -sf -imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0 /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/
+             ln -sf -imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0 /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-imx6qsabresd
+         fi
+     fi
+
+
+    if [ "x" != "x" ]
+    then
+        install /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/.txt /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0.txt
+        rm -f /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/.txt /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-imx6qsabresd.txt
+        ln -sf -imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0.txt /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/.txt
+        ln -sf -imx6qsabresd-v2016.07+gitAUTOINC+e6b42411ab-r0.txt /home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/deploy-u-boot-fslc/-imx6qsabresd.txt
+    fi
+}
+
+cd '/home/eku/fsl-community-bsp/build/tmp/work/imx6qsabresd-poky-linux-gnueabi/u-boot-fslc/v2016.07+gitAUTOINC+e6b42411ab-r0/git'
+do_deploy
+
+# cleanup
+ret=$?
+trap '' 0
+exit $ret

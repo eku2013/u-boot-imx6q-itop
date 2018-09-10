@@ -1,0 +1,14 @@
+PN: u-boot-fslc
+PV: v2016.07+gitAUTOINC+e6b42411ab
+PR: r0
+PKGV: v2016.07+git0+e6b42411ab
+PKGR: r0
+LICENSE: GPLv2+
+DESCRIPTION_u-boot-fslc-staticdev: U-Boot based on mainline U-Boot used by FSL Community BSP in order to provide support for some backported features and fixes, or because it was submitted for revision and it takes some time to become part of a stable version, or because it is not applicable for upstreaming.  This package contains static libraries for software development.
+SUMMARY_u-boot-fslc-staticdev: Universal Boot Loader for embedded devices - Development files (Static Libraries)
+RDEPENDS_u-boot-fslc-staticdev: u-boot-fslc-dev (= v2016.07+git0+e6b42411ab-r0)
+SECTION_u-boot-fslc-staticdev: devel
+PKG_u-boot-fslc-staticdev: u-boot-fslc-staticdev
+FILES_u-boot-fslc-staticdev: /usr/lib/*.a /lib/*.a /usr/lib/u-boot-fslc/*.a
+FILES_INFO: {}
+PKGSIZE_u-boot-fslc-staticdev: 0

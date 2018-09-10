@@ -1,0 +1,13 @@
+PN: u-boot-fslc
+PV: v2016.07+gitAUTOINC+e6b42411ab
+PR: r0
+PKGV: v2016.07+git0+e6b42411ab
+PKGR: r0
+LICENSE: GPLv2+
+DESCRIPTION_u-boot-fslc-doc: U-Boot based on mainline U-Boot used by FSL Community BSP in order to provide support for some backported features and fixes, or because it was submitted for revision and it takes some time to become part of a stable version, or because it is not applicable for upstreaming.  This package contains documentation.
+SUMMARY_u-boot-fslc-doc: Universal Boot Loader for embedded devices - Documentation files
+SECTION_u-boot-fslc-doc: doc
+PKG_u-boot-fslc-doc: u-boot-fslc-doc
+FILES_u-boot-fslc-doc: /usr/share/doc /usr/share/man /usr/share/info /usr/share/gtk-doc /usr/share/gnome/help
+FILES_INFO: {}
+PKGSIZE_u-boot-fslc-doc: 0

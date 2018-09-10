@@ -1,0 +1,7 @@
+DEBUG: Executing python function sysroot_cleansstate
+DEBUG: Python function sysroot_cleansstate finished
+DEBUG: Executing shell function do_configure
+DEBUG: Shell function do_configure finished
+DEBUG: Executing python function do_qa_configure
+NOTE: u-boot-fslc: md5 checksum matched for file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6
+DEBUG: Python function do_qa_configure finished

@@ -1,0 +1,38 @@
+def sstate_hardcode_path_unpack(d):
+    # Fixup hardcoded paths
+    #
+    # Note: The logic below must match the reverse logic in
+    # sstate_hardcode_path(d)
+    import subprocess
+
+    sstateinst = d.getVar('SSTATE_INSTDIR', True)
+    fixmefn =  sstateinst + "fixmepath"
+    if os.path.isfile(fixmefn):
+        staging = d.getVar('STAGING_DIR', True)
+        staging_target = d.getVar('STAGING_DIR_TARGET', True)
+        staging_host = d.getVar('STAGING_DIR_HOST', True)
+
+        if bb.data.inherits_class('native', d) or bb.data.inherits_class('nativesdk', d) or bb.data.inherits_class('crosssdk', d) or bb.data.inherits_class('cross-canadian', d):
+            sstate_sed_cmd = "sed -i -e 's:FIXMESTAGINGDIR:%s:g'" % (staging)
+        elif bb.data.inherits_class('cross', d):
+            sstate_sed_cmd = "sed -i -e 's:FIXMESTAGINGDIRTARGET:%s:g; s:FIXMESTAGINGDIR:%s:g'" % (staging_target, staging)
+        else:
+            sstate_sed_cmd = "sed -i -e 's:FIXMESTAGINGDIRHOST:%s:g'" % (staging_host)
+
+        extra_staging_fixmes = d.getVar('EXTRA_STAGING_FIXMES', True) or ''
+        for fixmevar in extra_staging_fixmes.split():
+            fixme_path = d.getVar(fixmevar, True)
+            sstate_sed_cmd += " -e 's:FIXME_%s:%s:g'" % (fixmevar, fixme_path)
+
+        # Add sstateinst to each filename in fixmepath, use xargs to efficiently call sed
+        sstate_hardcode_cmd = "sed -e 's:^:%s:g' %s | xargs %s" % (sstateinst, fixmefn, sstate_sed_cmd)
+
+        bb.note("Replacing fixme paths in sstate package: %s" % (sstate_hardcode_cmd))
+        subprocess.call(sstate_hardcode_cmd, shell=True)
+
+        # Need to remove this or we'd copy it into the target directory and may
+        # conflict with another writer
+        os.remove(fixmefn)
+
+sstate_hardcode_path_unpack(d)
+
